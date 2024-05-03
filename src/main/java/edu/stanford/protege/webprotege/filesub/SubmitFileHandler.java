@@ -46,12 +46,8 @@ public class SubmitFileHandler implements CommandHandler<SubmitFileRequest, Subm
         try {
             var tempFile = Files.createTempFile("webprotege-file-submission", null);
             var fileContentsInBase64 = request.fileContents();
-            System.out.println();
-            System.out.println();
-            System.out.println("Data Is:");
             var bytes = Base64.getDecoder().decode(fileContentsInBase64);
             Files.write(tempFile, bytes);
-            System.out.println("Temp file is " + bytes.length + " bytes");
             var fileSubmissionId = storageService.storeFile(tempFile);
             return Mono.just(new SubmitFileResponse(fileSubmissionId));
         } catch (IOException e) {
