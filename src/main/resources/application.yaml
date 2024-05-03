@@ -1,0 +1,30 @@
+server:
+    port: 7778
+
+spring:
+    application:
+        name: webprotege-file-submission-service
+    rabbitmq:
+        host: rabbitmq
+        port: 5672
+        password: guest
+        username: guest
+
+
+webprotege:
+    rabbitmq:
+        requestqueue: webprotege-file-submission-service-queue
+        responsequeue: webprotege-file-submission-service-response-queue
+        timeout: 60000
+    minio:
+        accessKey: webprotege
+        endPoint: http://webprotege-local.edu:9000
+        secretKey: webprotege
+        bucketName: webprotege-uploads
+    keycloak:
+        serverUrl: http://webprotege-local.edu/auth
+        realmName: webprotege
+        clientId: admin-cli
+        clientSecret: C1MYgWgr9qpLsnNnPS3nbFNf5nGDe5H7
+        username: admin
+        password: password

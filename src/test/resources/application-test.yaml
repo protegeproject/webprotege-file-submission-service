@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: test-webprotege-file-submission-service
+  rabbitmq:
+    username: guest
+    password: guest
+
+
+  security:
+    oauth2:
+      client:
+        registration.keycloak:
+          client-id: webprotege
+          authorization-grant-type: authorization_code
+          scope: openid
+        provider.keycloak:
+          user-name-attribute: preferred_username
+
+webprotege:
+  minio:
+    accessKey: minioadmin
+    secretKey: minioadmin
+  rabbitmq:
+    commands-subscribe: false
+
