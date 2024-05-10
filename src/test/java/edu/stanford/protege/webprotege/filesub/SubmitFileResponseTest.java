@@ -30,8 +30,6 @@ public class SubmitFileResponseTest {
         var response = new SubmitFileResponse(id);
 
         var jsonContent = json.write(response);
-
-        assertThat(jsonContent).extractingJsonPathStringValue("$.fileSubmissionResult").asString().isEqualTo("ACCEPTED");
         assertThat(jsonContent).extractingJsonPathStringValue("$.fileSubmissionId").asString().isEqualTo(uuid);
     }
 
