@@ -17,7 +17,7 @@ jobs:
           server-username: DOCKER_USERNAME
           server-password: DOCKER_PASSWORD
       - name: Publish package
-        run: mvn --batch-mode -Prelease -Ddockerfile.username=${{secrets.DOCKER_USERNAME}} -Ddockerfile.password=${{secrets.DOCKER_TOKEN}} dockerfile:build dockerfile:push
+        run: mvn --batch-mode -Prelease -Ddockerfile.username=${{secrets.DOCKER_USERNAME}} -Ddockerfile.password=${{secrets.DOCKER_TOKEN}} package dockerfile:push
 env:
   DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
   DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
