@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>edu.stanford.protege</groupId>
 	<artifactId>webprotege-file-submission-service</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>webprotege-file-submission-service</name>
 	<description>A service that stores files</description>
 	<properties>
