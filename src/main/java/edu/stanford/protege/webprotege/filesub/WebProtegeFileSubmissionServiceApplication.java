@@ -2,15 +2,18 @@ package edu.stanford.protege.webprotege.filesub;
 
 import edu.stanford.protege.webprotege.common.WebProtegeCommonConfiguration;
 import edu.stanford.protege.webprotege.ipc.WebProtegeIpcApplication;
+import edu.stanford.protege.webprotege.ipc.impl.RabbitMqProperties;
 import edu.stanford.protege.webprotege.jackson.WebProtegeJacksonApplication;
 import io.minio.MinioClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import({WebProtegeCommonConfiguration.class, WebProtegeIpcApplication.class, WebProtegeJacksonApplication.class})
+@EnableConfigurationProperties(RabbitMqProperties.class)
 public class WebProtegeFileSubmissionServiceApplication {
 
 	public static void main(String[] args) {
@@ -29,5 +32,4 @@ public class WebProtegeFileSubmissionServiceApplication {
 	StorageService storageService(MinioClient minioClient, MinioProperties properties) {
 		return new StorageService(minioClient, properties);
 	}
-
 }
