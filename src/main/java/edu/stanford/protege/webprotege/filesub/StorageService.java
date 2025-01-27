@@ -41,6 +41,7 @@ public class StorageService {
         logger.info("Storing file ({}) with an identifier of {}", getFileSizeInMB(tempFile), fileIdentifier);
         createBucketIfNecessary();
         uploadObject(tempFile, fileIdentifier);
+        logger.info("Upload complete");
         return new FileSubmissionId(fileIdentifier);
     }
 
